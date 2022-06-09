@@ -1,6 +1,9 @@
-import express from 'express';
-import cors from 'cors';
+// import express from 'express';
+// import cors from 'cors';
 
+const express = require('express')
+const cors = require('cors')
+const { resolve } = require('path')
 
 const PORT = process.env.PORT || 4000
 const app = express();
@@ -9,7 +12,8 @@ const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200
 }
-const buildFolderPath = '/Users/jmahirakz/Sample-Deployment/front-end/build'
+// const buildFolderPath = '/Users/jmahirakz/Sample-Deployment/front-end/build'
+const buildFolderPath = resolve(__dirname, '../front-end/build')
 
 app.use(cors(corsOptions))
 app.use(express.static(buildFolderPath))
